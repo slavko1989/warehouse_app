@@ -39,6 +39,11 @@ Route::controller(ProductivityController::class)->group(function() {
     Route::get('dashboard/productivities/delete/{id}','delete');
 });
 
+Route::controller(ShiftsController::class)->group(function() {
+    Route::get('dashboard/shifts/index','index');
+    
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
