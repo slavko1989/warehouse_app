@@ -4,11 +4,11 @@
 @endsection
 <body class="g-sidenav-show  bg-gray-200">
     @include('dashboard/bootstrap_sections.sidebar')
-    
-    
+
+
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         @include('dashboard/bootstrap_sections.nav')
-        
+
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <form method="post" action="{{ route('create_productivity') }}">
                                 @csrf
-                                
+
                                 <div class="mb-3">
                                     <label for="date" class="form-label">Date</label>
                                     <input type="date" class="form-control"  name="date"
@@ -34,10 +34,10 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                
-                                <input type="hidden" class="form-control" id="papers" name="the_norm_of_papers">
-                                <input type="hidden" class="form-control" id="boxes" name="the_norm_of_boxes">
-                                
+
+                                <input type="hidden" class="form-control" id="papers" name="the_norm_of_papers" value="53">
+                                <input type="hidden" class="form-control" id="boxes" name="the_norm_of_boxes" value="1260">
+
                                 <div class="mb-3">
                                     <label for="daily_papers" class="form-label">Daily papers</label>
                                     <input type="text" class="form-control" id="daily_papers" name="daily_of_papers"
@@ -56,14 +56,14 @@
                                 </div>
                                 <div class="mb-3">
                                 <select name="employee_id">
-                                    
+
                                     <option>Choose</option>
                                     @foreach($employee as $e)
                                     <option value="{{ $e->id }}">{{ $e->full_name }}</option>
                                     @endforeach
                                 </select>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </form>
                         </div>

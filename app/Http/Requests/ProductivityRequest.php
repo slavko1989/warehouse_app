@@ -24,8 +24,8 @@ class ProductivityRequest extends FormRequest
         return [
             'date'=>'required',
             'employee_id'=>'required',
-            'the_norm_of_papers' => 'integer',
-            'the_norm_of_boxes' => 'integer'
+            'the_norm_of_papers' => 'required',
+            'the_norm_of_boxes' => 'required'
         ];
     }
 }

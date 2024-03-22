@@ -9,7 +9,7 @@ use App\Http\Requests\EmployeeRequest;
 class EmployeeController extends Controller
 {
     public function create(){
-        
+
         return view('dashboard/employees.index',[
             'employee'=>Employee::all()
         ]);
@@ -23,15 +23,11 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request){
 
         $employee = new Employee;
-        $employee->f_name = $request->input('f_name');
-        $employee->l_name = $request->input('l_name');
-        $employee->email = $request->input('email');
-        $employee->date_of_birth = $request->input('date_of_birth');
-        $employee->years_in_company = $request->input('years_in_company');
-        $employee->position = $request->input('position');
-        $employee->education = $request->input('education');
-        $employee->code_of_employee = $request->input('code_of_employee');
 
+        $data = $request->only([
+            'f_name','l_name','email','date_of_birth','years_in_company'
+            ,'position','education','code_of_employee'
+        ]);
         $image = $request->profile_image;
         if($image){
         $imgname = time().'.'.$image->getClientOriginalExtension();
@@ -39,6 +35,7 @@ class EmployeeController extends Controller
         $employee->profile_image=$imgname;
         }
 
+        $employee->fill($data);
         $employee->save();
 
         return redirect()->back()->with('message','Employee created successfully');
@@ -46,9 +43,35 @@ class EmployeeController extends Controller
 
     public function delete($id){
 
-
         Employee::where('id',$id)->firstOrFail()->delete();
         return redirect()->back()->with('message','Employee has destroyed');
+
+    }
+
+    public function edit($id){
+
+        $edit = Employee::find($id);
+        return view('dashboard.employees.edit',compact('edit'));
+    }
+
+    public function update(EmployeeRequest $request,$id){
+
+        $employee = Employee::find($id);
+
+        $data = $request->only([
+            'f_name','l_name','email','date_of_birth','years_in_company'
+            ,'position','education','code_of_employee'
+        ]);
+
+        $image = $request->profile_image;
+        if($image){
+        $imgname = time().'.'.$image->getClientOriginalExtension();
+        $request->profile_image->move(public_path('employee_image'),$imgname);
+        $employee->profile_image=$imgname;
+        }
+        $employee->fill($data);
+        $employee->update();
+        return redirect()->back()->with('message','Employee updated successfully');
 
     }
 }

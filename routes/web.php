@@ -30,6 +30,8 @@ Route::controller(EmployeeController::class)->group(function() {
     Route::get('dashboard/employees/new_employee','new_employee');
     Route::post('dashboard/employees/new_employee','store')->name('create_employee');
     Route::get('dashboard/employees/delete/{id}','delete');
+    Route::get('dashboard/employees/edit/{id}','edit')->name('edit_emp');
+    Route::post('dashboard/employees/edit/{id}','update');
 });
 
 Route::controller(ProductivityController::class)->group(function() {
@@ -39,11 +41,11 @@ Route::controller(ProductivityController::class)->group(function() {
     Route::get('dashboard/productivities/delete/{id}','delete');
 });
 
-Route::controller(ShiftsController::class)->group(function() {
+/*Route::controller(ShiftsController::class)->group(function() {
     Route::get('dashboard/shifts/index','index');
-    
-});
 
+});
+*/
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -22,8 +22,8 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Education</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Code of employee</th>
-                      
-                      
+
+
                       <th class="text-secondary opacity-7">Action</th>
                     </tr>
                   </thead>
@@ -32,14 +32,14 @@
                     <div class="alert alert-info" role="alert">
                             <p class="p_info">You don't have any employees</p>
                     </div>
-                    
+
                     @else
                     @foreach($employee as $employees)
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="{{ asset($employees->profile_image) }}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            <img src="{{ asset('employee_image/'.$employees->profile_image) }}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">{{ $employees->full_name }}</h6>
@@ -54,7 +54,7 @@
                         <p class="text-xs font-weight-bold mb-0">{{ $employees->date_of_birth }}</p>
                       </td>
                       <td>
-                        
+
                         <p class="text-xs text-secondary mb-0">{{ $employees->position }}</p>
                       </td>
                       <td class="align-middle text-center text-sm">
@@ -65,10 +65,10 @@
                       </td>
                       <td class="align-middle">
                         <a href="{{ url('dashboard/employees/edit/'. $employees->id) }}">
-                          Edit
+                            ! -
                         </a>
                         <a href="{{ url('dashboard/employees/delete/'. $employees->id) }}">
-                          Delete
+                             - X
                         </a>
                       </td>
                     </tr>
@@ -82,4 +82,3 @@
           </div>
         </div>
       </div>
-  

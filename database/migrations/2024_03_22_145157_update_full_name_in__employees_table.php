@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('employees', function (Blueprint $table) {
-            $table->string('full_name')->virtualAs('CONCAT(f_name, l_name)');
 
+            $table->string('full_name')->virtualAs('CONCAT(f_name, " ", l_name)');
         });
     }
 
@@ -23,6 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('employees', function (Blueprint $table) {
+
             $table->dropColumn('full_name');
         });
     }

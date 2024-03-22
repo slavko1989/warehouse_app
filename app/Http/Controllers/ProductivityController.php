@@ -10,7 +10,7 @@ use App\Models\Employee;
 class ProductivityController extends Controller
 {
      public function create(){
-        
+
         return view('dashboard/productivities.index',[
             'productivity'=>Productivity::all()
         ]);
@@ -25,7 +25,7 @@ class ProductivityController extends Controller
 
     public function store(ProductivityRequest $request){
 
-        
+
         $productivity = new Productivity;
         $productivity->date = $request->input('date');
         $productivity->the_norm_of_papers = $request->input('the_norm_of_papers');
@@ -33,10 +33,10 @@ class ProductivityController extends Controller
         $productivity->daily_of_boxes = $request->input('daily_of_boxes');
         $productivity->daily_of_papers = $request->input('daily_of_papers');
         $productivity->employee_id = $request->input('employee_id');
-        
+
 
         if($productivity->save()){
-    
+
         return redirect()->back()->with('message','productivity created successfully');
     }else{
 
@@ -45,7 +45,6 @@ class ProductivityController extends Controller
     }
 
     public function delete($id){
-
 
         productivity::where('id',$id)->firstOrFail()->delete();
         return redirect()->back()->with('message','Productivity has destroyed');
