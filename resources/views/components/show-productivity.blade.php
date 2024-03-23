@@ -22,9 +22,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Daily norm of papers</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Daily worker boxes</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Daily worker papers</th>
-                                    
-                                    
-                                    
+
                                     <th class="text-secondary opacity-7">Action</th>
                                 </tr>
                             </thead>
@@ -33,11 +31,11 @@
                                 <div class="alert alert-info" role="alert">
                                     <p class="p_info">You don't have any info here</p>
                                 </div>
-                                
+
                                 @else
                                 @foreach($productivity as $prd)
                                 <tr>
-                                    
+
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">{{ $prd->employee_id }}</p>
                                     </td>
@@ -48,18 +46,17 @@
                                         <p class="text-xs font-weight-bold mb-0">{{ $prd->the_norm_of_boxes }}</p>
                                     </td>
                                     <td>
-                                        
+
                                         <p class="text-xs text-secondary mb-0">{{ $prd->the_norm_of_papers }}</p>
                                     </td>
                                     <td>
-                                        
+
                                         <p class="text-xs text-secondary mb-0">{{ $prd->daily_of_boxes }}</p>
                                     </td>
                                     <td>
-                                        
+
                                         <p class="text-xs text-secondary mb-0">{{ $prd->daily_of_papers }}</p>
                                     </td>
-                                    
                                     <td class="align-middle">
                                         <a href="{{ url('dashboard/productivities/edit/'. $prd->id) }}">
                                             Edit

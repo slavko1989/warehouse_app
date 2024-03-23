@@ -14,6 +14,5 @@ class ProductivitySeeder extends Seeder
     public function run(): void
     {
         Productivity::factory(20)->create();
-
     }
 }

@@ -18,8 +18,8 @@
                             @if(session()->has('message'))
                             {{ session()->get('message') }}
                             @endif
-                            @if(session()->has('bag'))
-                    {{ session()->get('bag') }}
+                            @if(session()->has('error'))
+                            {{ session()->get('error') }}
                     @endif
                         </div>
                         <div class="card-body">
@@ -37,6 +37,7 @@
 
                                 <input type="hidden" class="form-control" id="papers" name="the_norm_of_papers" value="53">
                                 <input type="hidden" class="form-control" id="boxes" name="the_norm_of_boxes" value="1260">
+                                <input type="hidden" class="form-control" id="point" name="point" value="0">
 
                                 <div class="mb-3">
                                     <label for="daily_papers" class="form-label">Daily papers</label>
@@ -51,6 +52,31 @@
                                     <input type="text" class="form-control" id="da_boxes" name="daily_of_boxes"
                                     value="{{ old('daily_of_boxes') }}">
                                     @error('daily_of_boxes')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="daily_of_boxes" class="form-label">Sum papers</label>
+                                    <input type="text" class="form-control" id="da_boxes" name="sum_papers"
+                                    value="{{ old('sum_papers') }}">
+                                    @error('sum_papers')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="daily_of_boxes" class="form-label">Sum boxes</label>
+                                    <input type="text" class="form-control" id="da_boxes" name="sum_boxes"
+                                    value="{{ old('sum_boxes') }}">
+                                    @error('sum_boxes')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="daily_of_boxes" class="form-label">Full sum</label>
+                                    <input type="text" class="form-control" id="da_boxes" name="full_sum"
+                                    value="{{ old('full_sum') }}">
+                                    @error('full_sum')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

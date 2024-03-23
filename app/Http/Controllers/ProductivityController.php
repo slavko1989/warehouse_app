@@ -40,7 +40,7 @@ class ProductivityController extends Controller
         return redirect()->back()->with('message','productivity created successfully');
     }else{
 
-        return redirect()->back()->with('bag','fuck');
+        return redirect()->back()->with('error','something went wrong');
         }
     }
 
