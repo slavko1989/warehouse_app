@@ -50,4 +50,11 @@ class ProductivityController extends Controller
         return redirect()->back()->with('message','Productivity has destroyed');
 
     }
+    public function edit($id){
+
+    }
+
+    public function update(Request $request, $id){
+
+    }git sta
 }
