@@ -52,9 +52,25 @@ class ProductivityController extends Controller
     }
     public function edit($id){
 
+        $edit = Productivity::find($id);
+        $emp = Employee::all();
+        return view('dashboard/productivities.edit',compact('edit','emp'));
+
     }
 
     public function update(Request $request, $id){
+
+        $edit = Productivity::find($id);
+
+        $data = $request->only([
+            'employee_id',
+            'daily_of_papers',
+            'daily_of_boxes'
+        ]);
+        $edit->fill($data);
+        $edit->update();
+        $request->session()->put('selected_employee_id', $request->employee_id);
+        return redirect()->back()->with('message','Successfully updated');
 
     }
 }

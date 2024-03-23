@@ -16,7 +16,7 @@ class Productivity extends Model
     'the_norm_of_papers',
     'the_norm_of_boxes',
     'daily_of_papers',
-    'daily_of_boxex',
+    'daily_of_boxes',
     'employee_id'
 ];
 }

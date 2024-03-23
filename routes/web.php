@@ -39,6 +39,9 @@ Route::controller(ProductivityController::class)->group(function() {
     Route::get('dashboard/productivities/new_productivity','new_productivity');
     Route::post('dashboard/productivities/new_productivity','store')->name('create_productivity');
     Route::get('dashboard/productivities/delete/{id}','delete');
+    Route::get('dashboard/productivities/edit/{id}','edit')->name('edit_prd');
+    Route::post('dashboard/productivities/edit/{id}','update');
+
 });
 
 /*Route::controller(ShiftsController::class)->group(function() {
