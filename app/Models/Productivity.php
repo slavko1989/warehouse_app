@@ -8,10 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Productivity extends Model
 {
     use HasFactory;
-
-
-
-
     protected $fillable = ['date',
     'the_norm_of_papers',
     'the_norm_of_boxes',
