@@ -14,7 +14,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Shifts Form</h4>
+                            <h4>Shifts</h4>
                             @if(session()->has('message'))
                             {{ session()->get('message') }}
                             @endif
@@ -63,11 +63,12 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="daily_of_boxes" class="form-label">employee</label>
+                                    <label for="daily_of_boxes" class="form-label">Employee</label><br>
                                     <select name="employeeId">
                                     @foreach($emp as $e)
                                     <option value="{{ $e->id }}">{{ $e->full_name }}</option>
                                     @endforeach
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </form>
