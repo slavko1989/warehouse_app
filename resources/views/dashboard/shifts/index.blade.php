@@ -1,7 +1,6 @@
 @extends('dashboard/bootstrap_sections.head')
 @section('title','Company Software')
 @section('new_links')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 @endsection
 
@@ -13,7 +12,7 @@
   @include('dashboard/bootstrap_sections.nav')
 
 
-    <x-show-shifts :shift='$shit'></x-show-shifts>
+    <x-show-shifts :shift='$shift'></x-show-shifts>
 
 
 @include('dashboard/bootstrap_sections.footer')

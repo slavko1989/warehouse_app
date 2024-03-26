@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductivityController;
+use App\Http\Controllers\ShiftsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,16 @@ Route::controller(ProductivityController::class)->group(function() {
     Route::get('dashboard/productivities/delete/{id}','delete');
     Route::get('dashboard/productivities/edit/{id}','edit')->name('edit_prd');
     Route::post('dashboard/productivities/edit/{id}','update');
+
+});
+
+Route::controller(ShiftsController::class)->group(function() {
+    Route::get('/dashboard/shifts/index','index');
+    Route::get('dashboard/shifts/create_shift','add_shift');
+    Route::post('dashboard/shifts/create_shift','store')->name('create_shift');
+    Route::get('/dashboard/shifts/delete/{id}','delete');
+    Route::get('/dashboard/shifts/edit','edit');
+
 
 });
 

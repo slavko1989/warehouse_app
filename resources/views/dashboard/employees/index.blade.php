@@ -1,6 +1,6 @@
 @extends('dashboard/bootstrap_sections.head')
 @section('title','Company Software')
-@include('dashboard/bootstrap_sections.links')
+
 @section('new_links')
 
 @endsection
