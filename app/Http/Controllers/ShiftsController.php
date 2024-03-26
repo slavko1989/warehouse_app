@@ -24,7 +24,7 @@ class ShiftsController extends Controller
             'emp' => Employee::all()
     ]);
     }
-    public function strore(Request $request){
+    public function store(Request $request){
 
             $shift = new Shifts;
             $data = $request->only([
@@ -41,13 +41,32 @@ class ShiftsController extends Controller
             return redirect()->back()->with('message','Successfully saved shift for employee');
     }
 
-    public function edit(){
-        return view('dashboard/shifts.edit');
+    public function edit($id){
+
+        return view('dashboard/shifts.edit',
+        [
+        'edit'=>Shifts::find($id),
+        'emp' => Employee::all()
+        ]);
 
     }
 
-    public function update(){
+    public function update(Request $request,$id){
 
+        $shift = Shifts::find($id);
+            $data = $request->only([
+                'shifts',
+                'worked_from',
+                'worked_to',
+                'day_in_week',
+                'employeeId'
+            ]);
+
+            $shift->fill($data);
+            $shift->update();
+            $request->session()->put('selected_employee_id', $request->employee_id);
+
+            return redirect()->back()->with('message','Successfully saved shift for employee');
     }
 
     public function delete($id){

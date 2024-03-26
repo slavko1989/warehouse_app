@@ -56,14 +56,14 @@
                         @if($shifts->employee) <!-- Provera da li postoji zaposlenik za ovu smenu -->
                         <span class="badge badge-sm bg-gradient-success">{{ $shifts->employee->full_name }}</span>
                     @else
-                        <span class="badge badge-sm bg-gradient-danger">Nema zaposlenika</span>
+                        <span class="badge badge-sm bg-gradient-danger">No one in shift</span>
                     @endif
 
                         </span>
                       </td>
 
                       <td class="align-middle">
-                        <a href="{{ url('dashboard/shifts/edit') }}">
+                        <a href="{{ url('dashboard/shifts/edit/'. $shifts->id) }}">
                           Edit
                         </a>
                         <a href="{{ url('dashboard/shifts/delete/'. $shifts->id) }}">

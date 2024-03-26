@@ -50,16 +50,11 @@ Route::controller(ShiftsController::class)->group(function() {
     Route::get('dashboard/shifts/create_shift','add_shift');
     Route::post('dashboard/shifts/create_shift','store')->name('create_shift');
     Route::get('/dashboard/shifts/delete/{id}','delete');
-    Route::get('/dashboard/shifts/edit','edit');
-
-
+    Route::get('/dashboard/shifts/edit/{id}','edit')->name('edit_shift');
+    Route::post('/dashboard/shifts/edit/{id}','update');
 });
 
-/*Route::controller(ShiftsController::class)->group(function() {
-    Route::get('dashboard/shifts/index','index');
 
-});
-*/
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
