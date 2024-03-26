@@ -1,18 +1,5 @@
-@props(['shift'])
-<div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Shifts for emploees</h6>
-                <h6 class="text-black text-capitalize ps-3">
-                  <a href="{{ url('dashboard/shifts/create_shift') }}">Create new shift</a>
-                </h6>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
+@props(['shift_2'])
+
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
@@ -25,13 +12,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @if($shift->isEmpty())
+                    @if($shift_2->isEmpty())
                     <div class="alert alert-info" role="alert">
                             <p class="p_info">You are not create shift for this week</p>
                     </div>
 
                     @else
-                    @foreach($shift as $shifts)
+                    @foreach($shift_2 as $shifts)
                     <tr>
 
                       <td>
@@ -73,9 +60,5 @@
                     @endif
                   </tbody>
                 </table>
-            
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <hr>
+

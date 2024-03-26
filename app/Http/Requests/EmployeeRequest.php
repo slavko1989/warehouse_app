@@ -26,7 +26,7 @@ class EmployeeRequest extends FormRequest
             'l_name'=>'required',
             'email'=>'required|email|unique:users,email',
             'date_of_birth'=>'required',
-            'profile_image'=>'required',
+            
             'position'=>'required',
             'education'=>'required',
             'code_of_employee'=>'required'

@@ -14,7 +14,12 @@ class ShiftsController extends Controller
 
         return view('dashboard/shifts.index',[
 
-            'shift'=>Shifts::all()
+            'shift' => Shifts::where('shifts', 'first')->with('employee')->get(),
+            'shift_2' => Shifts::where('shifts', 'second')->with('employee')->get(),
+            'shift_3' => Shifts::where('shifts', 'third')->with('employee')->get()
+
+
+
         ]);
     }
 
@@ -64,7 +69,7 @@ class ShiftsController extends Controller
 
             $shift->fill($data);
             $shift->update();
-            $request->session()->put('selected_employee_id', $request->employee_id);
+            $request->session()->put('selected_employee_id', $request->employeeId);
 
             return redirect()->back()->with('message','Successfully saved shift for employee');
     }
