@@ -75,7 +75,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="position" class="form-label">Position</label>
-                            <input type="text" class="form-control" id="position" name="position" value="{{ $edit->position }}">
+                            <select type="text" class="form-control" id="position" name="positionId" value="{{ old('position') }}">
+                                @foreach($position as $p)
+                                <option value="{{ $p->id }}">{{ $p->name }}</option>
+                                @endforeach
+                            </select>
                             @error('position')
                                     <div class="text-danger">{{ $message }}</div>
                             @enderror

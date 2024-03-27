@@ -52,7 +52,7 @@
                       <td class="align-middle text-center text-sm">
 
                         @if($shifts->employee) <!-- Provera da li postoji zaposlenik za ovu smenu -->
-                        <span class="badge badge-sm bg-gradient-success">{{ $shifts->employee->full_name }} / {{ $shifts->employee->position }}</span>
+                        <span class="badge badge-sm bg-gradient-success">{{ $shifts->employee->full_name }} / {{ $shifts->employee->position->name }}</span>
                     @else
                         <span class="badge badge-sm bg-gradient-danger">No one in shift</span>
                     @endif
@@ -73,7 +73,7 @@
                     @endif
                   </tbody>
                 </table>
-            
+
               </div>
             </div>
           </div>

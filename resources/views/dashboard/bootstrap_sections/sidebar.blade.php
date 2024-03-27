@@ -17,6 +17,43 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-white " href="{{ url('dashboard/employees/index') }}">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">receipt_long</i>
+              </div>
+              <span class="nav-link-text ms-1">Employees</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white " href="{{ url('dashboard/position/index') }}">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">receipt_long</i>
+              </div>
+              <span class="nav-link-text ms-1">Position</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white " href="{{ url('dashboard/shifts/index') }}">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Shifts</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white " href="{{ url('dashboard/productivities/index') }}">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Productivities</span>
+            </a>
+          </li>
+
         <li class="nav-item">
           <a class="nav-link text-white " href="{{ url('dashboard/tables/tables') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -36,14 +73,7 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="{{ url('dashboard/productivities/index') }}">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Productivities</span>
-          </a>
-        </li>
+
 
         <li class="nav-item">
           <a class="nav-link text-white " href="{{ url('dashboard/index') }}">
@@ -54,26 +84,8 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="{{ url('dashboard/shifts/index') }}">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Shifts</span>
-          </a>
-        </li>
 
-        
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="{{ url('dashboard/employees/index') }}">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Employees</span>
-          </a>
-        </li>
-       
         <li class="nav-item">
           <a class="nav-link text-white " href="{{ url('dashboard/index') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

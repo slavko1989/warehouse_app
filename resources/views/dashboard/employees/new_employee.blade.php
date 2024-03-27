@@ -5,11 +5,11 @@
 
 <body class="g-sidenav-show  bg-gray-200">
   @include('dashboard/bootstrap_sections.sidebar')
-        
-   
+
+
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     @include('dashboard/bootstrap_sections.nav')
-   
+
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -21,7 +21,7 @@
                     @if(session()->has('message'))
                     {{ session()->get('message') }}
                     @endif
-                    
+
 
                 </div>
                 <div class="card-body">
@@ -75,7 +75,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="position" class="form-label">Position</label>
-                            <input type="text" class="form-control" id="position" name="position" value="{{ old('position') }}">
+                            <select type="text" class="form-control" id="position" name="positionId" value="{{ old('position') }}">
+                                @foreach($position as $p)
+                                <option value="{{ $p->id }}">{{ $p->name }}</option>
+                                @endforeach
+                            </select>
                             @error('position')
                                     <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -94,14 +98,14 @@
                                     <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>  
+</div>
 
 
 

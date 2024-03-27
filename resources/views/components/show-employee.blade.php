@@ -55,7 +55,7 @@
                       </td>
                       <td>
 
-                        <p class="text-xs text-secondary mb-0">{{ $employees->position }}</p>
+                        <p class="text-xs text-secondary mb-0">{{ $employees->position->name }}</p>
                       </td>
                       <td class="align-middle text-center text-sm">
                         <span class="badge badge-sm bg-gradient-success">{{ $employees->education }}</span>

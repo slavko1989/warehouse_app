@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductivityController;
 use App\Http\Controllers\ShiftsController;
 /*
@@ -52,6 +53,14 @@ Route::controller(ShiftsController::class)->group(function() {
     Route::get('/dashboard/shifts/delete/{id}','delete');
     Route::get('/dashboard/shifts/edit/{id}','edit')->name('edit_shift');
     Route::post('/dashboard/shifts/edit/{id}','update');
+});
+
+Route::controller(PositionController::class)->group(function() {
+    Route::prefix('dashboard/position')->group(function() {
+    Route::get('/index','index');
+    Route::get('/create','create');
+    Route::post('/create','store')->name('create_position');
+    });
 });
 
 

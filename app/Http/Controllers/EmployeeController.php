@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Position;
 use App\Http\Requests\EmployeeRequest;
 
 class EmployeeController extends Controller
@@ -17,7 +18,7 @@ class EmployeeController extends Controller
 
     public function new_employee(){
 
-        return view('dashboard/employees.new_employee');
+        return view('dashboard/employees.new_employee',['position'=>Position::all()]);
     }
 
     public function store(EmployeeRequest $request){
@@ -26,7 +27,7 @@ class EmployeeController extends Controller
 
         $data = $request->only([
             'f_name','l_name','email','date_of_birth','years_in_company'
-            ,'position','education','code_of_employee'
+            ,'positionId','education','code_of_employee'
         ]);
         $image = $request->profile_image;
         if($image){
@@ -50,8 +51,9 @@ class EmployeeController extends Controller
 
     public function edit($id){
 
+        $position=Position::all();
         $edit = Employee::find($id);
-        return view('dashboard.employees.edit',compact('edit'));
+        return view('dashboard.employees.edit',compact('edit','position'));
     }
 
     public function update(EmployeeRequest $request,$id){
@@ -60,7 +62,7 @@ class EmployeeController extends Controller
 
         $data = $request->only([
             'f_name','l_name','email','date_of_birth','years_in_company'
-            ,'position','education','code_of_employee'
+            ,'positionId','education','code_of_employee'
         ]);
 
         $image = $request->profile_image;
