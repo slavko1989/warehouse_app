@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductivityController;
 use App\Http\Controllers\ShiftsController;
+use App\Http\Controllers\LeadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +61,14 @@ Route::controller(PositionController::class)->group(function() {
     Route::get('/index','index');
     Route::get('/create','create');
     Route::post('/create','store')->name('create_position');
+    });
+});
+
+Route::controller(LeadController::class)->group(function() {
+    Route::prefix('dashboard/lead')->group(function() {
+    Route::get('/index','index');
+    Route::get('/create','create');
+    Route::post('/create','store')->name('create_lead');
     });
 });
 
